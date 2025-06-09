@@ -7,7 +7,7 @@ title.addEventListener("mouseleave", () => {
   title.innerText = "Silly Thing :3";
 });
 
-//greetings
+// Greetings
 function getGreeting() {
   const hour = new Date().getHours();
   if (hour < 12) return "Good morning";
@@ -41,7 +41,6 @@ document.getElementById('submitName').onclick = function() {
   const name = document.getElementById('nameInput').value.trim();
   if (name) {
     document.getElementById('githubUser').textContent = name;
-    // Update greeting text before the name
     document.getElementById('welcome').childNodes[0].nodeValue = getGreeting() + " ";
     document.getElementById('blurOverlay').style.display = 'none';
     document.body.classList.remove('paused');
@@ -54,6 +53,7 @@ document.getElementById('nameInput').addEventListener('keydown', function(e) {
   if (e.key === 'Enter') document.getElementById('submitName').click();
 });
 
+// Footer toggle logic
 const footerBox = document.getElementById('footerBox');
 const footerBar = document.getElementById('footerBar');
 
@@ -61,6 +61,7 @@ footerBar.onclick = function() {
   footerBox.classList.toggle('footer--collapsed');
 };
 
+// Weather logic
 let lastWeather = {
   tempC: null,
   tempF: null,
@@ -98,7 +99,6 @@ function updateWeatherDisplay() {
   }
 }
 
-// Add this to enable toggling on click
 document.addEventListener('DOMContentLoaded', function() {
   const weatherDiv = document.getElementById('weather');
   weatherDiv.addEventListener('click', function() {
@@ -110,7 +110,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function getWeatherText(code) {
-  // Open-Meteo weather codes: https://open-meteo.com/en/docs
   if ([0, 1].includes(code)) return "Clear";
   if ([2, 3, 45, 48].includes(code)) return "Cloudy";
   if ([51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return "Rainy";
@@ -131,3 +130,9 @@ function getLocationAndWeather() {
 }
 
 window.addEventListener('DOMContentLoaded', getLocationAndWeather);
+
+// Hide dev-box on Credits button click
+document.getElementById('credits').addEventListener('click', () => {
+  const devBox = document.querySelector('.dev-box');
+  devBox.style.display = 'none';
+});
