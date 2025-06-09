@@ -80,19 +80,89 @@ body {
   color: #000;
 }
 
+.close-button {
+  background: #ffe3ef; /* Match the lighter pink theme */
+  border: 2px solid #e18aaa; /* Slightly darker border */
+  color: #e07ca5; /* Match the text color used in the web */
+  font-family: 'Permanent Marker', cursive; /* Use Permanent Marker font */
+  font-size: 1.2em; /* Slightly larger font size */
+  border-radius: 4px; /* Square with slightly rounded corners */
+  width: 30px; /* Square dimensions */
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.close-button:hover {
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
 .dev-box {
   background: #fff0f5;
   border: 2px solid #e18aaa;
-  border-radius: 20px;
-  padding: 20px;
-  max-width: 300px;
+  border-radius: 10px;
+  padding: 0; /* No padding here! */
+  width: 90%;
+  max-width: 600px;
   text-align: center;
+  position: absolute;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.dev-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffe3ef;
+  color: #e07ca5;
+  padding: 10px 20px; /* <-- Add horizontal padding */
+  border-radius: 10px 10px 0 0;
+  font-weight: bold;
+  cursor: grab;
+  position: relative;
+  z-index: 1;
+  border-bottom: 2px solid #e18aaa;
+  user-select: none;
+}
+
+.dev-content {
+  padding: 20px;
+  text-align: left; /* Left-align all content by default */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the image horizontally */
+}
+
+.dev-content {
+  padding: 20px; /* This gives your content the nice spacing! */
+}
+
+.dev-header:active {
+  cursor: grabbing; /* Indicates active dragging */
 }
 
 .pfp {
   width: 100px;
   height: 100px;
   border-radius: 50%;
+  border: 2px solid #e18aaa;   /* Match your box outline */
+  object-fit: cover;
+  display: block;
+  margin: 16px auto 8px auto;  /* Center and space it nicely */
+  background: #fff0f5;         /* Optional: match box bg if image has transparency */
+  user-select: none;
+  pointer-events: auto; /* keep clickable if needed */
+  -webkit-user-drag: none;
+}
+
+.dev-content p {
+  text-align: left;      /* Ensure paragraphs are left-aligned */
+  width: 100%;           /* Make paragraphs fill the container */
+  margin: 8px 0 0 0;     /* Optional: adjust spacing */
 }
 
 .footer {
@@ -228,4 +298,29 @@ body.paused *, body.paused *::before, body.paused *::after {
 
 #footerBar:hover {
   background: #e07ca5;
+}
+
+.popup-notice {
+  position: fixed;
+  left: 50%;
+  bottom: -100px;
+  transform: translateX(-50%);
+  min-width: 260px;
+  max-width: 90vw;
+  background: #ffe3ef;
+  color: #e07ca5;
+  border: 2px solid #e18aaa;
+  border-radius: 10px;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.1em;
+  text-align: center;
+  padding: 16px 32px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  z-index: 9999;
+  transition: bottom 0.5s cubic-bezier(.68,-0.55,.27,1.55);
+  pointer-events: none;
+}
+
+.popup-notice.show {
+  bottom: 40px;
 }

@@ -13,6 +13,7 @@
     <button id="submitName" class="fancy-button">Enter</button>
     <div style="margin-top:10px; font-size:0.9em; color:#e18aaa; background:#fff0f5; padding:4px 8px; border-radius:6px;">
       <em>Never put your real name on a website you don't know.</em>
+      <div id="popupNotice" class="popup-notice"></div>
     </div>
   </div>
 </div>
@@ -31,15 +32,19 @@
   <div class="version">V 1.10.25</div>
 </div>
 
-    <div class="dev-box">
-      <img src="pfp.png" alt="Dev" class="pfp">
-      <h2>Dev</h2>
-      <p>&lt;~ this is the guy that make the website</p>
-      <p>Pretty stupid and dumb right?</p>
-      <p>His name is fmboy, cute name right?</p>
-      <p>His pronoun is they/he</p>
-    </div>
+    <div class="dev-box" style="display: none;">
+  <div class="dev-header" id="devHeader">
+    <span>Dev</span>
+    <button class="close-button" id="closeDevBox">X</button>
   </div>
+  <div class="dev-content">
+    <img src="pfp.webp" alt="Dev" class="pfp" oncontextmenu="return false;" draggable="false">
+    <p>this is the guy that make the website</p>
+    <p>Pretty stupid and dumb right?</p>
+    <p>His name is fmboy, cute name right?</p>
+    <p>His pronoun is they/he</p>
+  </div>
+</div>
 
 <div class="footer" id="footerBox">
   <div id="footerBar" class="footer-bar"></div>
